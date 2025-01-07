@@ -9,7 +9,7 @@ const Sidebar = () => {
   ]);
 
   // State for price slider
-  const [priceRange, setPriceRange] = useState(100);
+  const [priceRange, setPriceRange] = useState(100); // Correctly destructuring state
 
   // Generic function to handle checkbox changes
   const handleCheckboxChange = (
@@ -113,13 +113,13 @@ const Sidebar = () => {
           type="range"
           min="0"
           max="150"
-          value={100}
-          onChange={(e) => setPriceRange(Number(e.target.value))}
+          value={priceRange} // Use state value
+          onChange={(e) => setPriceRange(parseFloat(e.target.value))} // Update state correctly
           className="w-full accent-blue-500"
         />
         <div className="flex justify-between items-center mb-4">
           <span className="space-y-4 text-xl font-semibold text-gray-500">
-            Max. ${100}.00
+            Max. ${priceRange}.00
           </span>
         </div>
       </div>
